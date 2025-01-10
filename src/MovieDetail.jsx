@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
-import { Link, useParams } from "react-router-dom"; // To get the movie ID from the URL
+import { Link, useParams } from "react-router-dom"; 
 import axios from "axios";
 
 const API_KEY = "fadb58c698c6b23be592155cc37ab29a";
 const API_URL_MOVIE = "https://api.themoviedb.org/3/movie";
 
-// Language mapping dictionary
+
 const languageMap = {
   en: "English",
   es: "Spanish",
@@ -28,9 +28,8 @@ const languageMap = {
 function MovieDetail() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams(); // Get the movie ID from the URL
+  const { id } = useParams(); 
 
-  // Fetch movie details based on the movie ID
   useEffect(() => {
     const fetchMovieDetails = async () => {
       setLoading(true);
@@ -47,31 +46,25 @@ function MovieDetail() {
     };
 
     fetchMovieDetails();
-  }, [id]); // Re-fetch movie details if the movie ID changes
+  }, [id]); 
 
-  // If the movie is loading, show a loading indicator
   if (loading) {
     return <p>Loading movie details...</p>;
   }
 
-  // If movie data is available, render it
   if (!movie) {
     return <p>Movie not found!</p>;
   }
 
-  // Get the full language name from the language code
   const languageName =
     languageMap[movie.original_language] || movie.original_language;
 
-  // Get the list of production countries
   const countries = movie.production_countries
     .map((country) => country.name)
     .join(", ");
 
-  // Get the main stars (cast) - you can customize the number of stars you want to show
-  const mainStars = movie.credits.cast.slice(0, 5); // Show top 5 cast members
+  const mainStars = movie.credits.cast.slice(0, 5);
 
-  // Get the director from the crew
   const director = movie.credits.crew.find(
     (person) => person.job === "Director"
   );

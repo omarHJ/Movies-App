@@ -14,25 +14,21 @@ const API_URL_SEARCH = "https://api.themoviedb.org/3/search/movie";
 function Home() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState(""); // Search query state
-  const [searchVisible, setSearchVisible] = useState(false); // Track visibility of search bar
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchVisible, setSearchVisible] = useState(false); 
 
-  // Handle input change for search
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  // Clear search query
   const handleClearSearch = () => {
     setSearchQuery("");
   };
 
-  // Toggle search bar visibility
   const toggleSearchVisibility = () => {
     setSearchVisible(!searchVisible);
   };
 
-  // Fetch popular movies or search based on query
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
@@ -41,23 +37,22 @@ function Home() {
         : `${API_URL_POPULAR}?api_key=${API_KEY}`;
 
       try {
-        const response = await axios.get(url); // Use axios to fetch data
-        setMovies(response.data.results); // Store movie data
+        const response = await axios.get(url);
+        setMovies(response.data.results); 
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false); // Set loading to false once fetch is done
+        setLoading(false); 
       }
     };
 
     fetchMovies();
-  }, [searchQuery]); // Only run the effect when searchQuery changes
+  }, [searchQuery]); 
 
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="container-fluid align-items-center">
-          {/* Logo/Title */}
           <a
             className="navbar-brand text-white"
             style={{
@@ -76,15 +71,13 @@ function Home() {
             Movies App
           </a>
 
-          {/* Search Icon for small screens */}
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
-            className="text-white d-lg-none search-icon" // Hide on large screens, show on small
+            className="text-white d-lg-none search-icon" 
             onClick={toggleSearchVisibility}
             style={{ cursor: "pointer", fontSize: "1.5rem" }}
           />
 
-          {/* Search Container */}
           <div
             className={`search-container ${
               searchVisible ? "d-block d-lg-flex m-auto" : "d-none d-lg-flex"

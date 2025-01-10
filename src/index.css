@@ -61,32 +61,24 @@ p {
   color: #333;
 }
 
-/* Hover effect for the movie cards */
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Scale the card and add shadow when hovered */
 .card:hover {
-  transform: scale(1.05);  /* Slightly enlarge the card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Add a subtle shadow */
+  transform: scale(1.05);  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
 }
 
-/* Optional: Change the card title color on hover */
-/* .card:hover .card-title {
-  color: #67400f;  /* Change the title color to a nice highlight color */
-
-/* Optional: Add some effect to the card body on hover */
 .card:hover .card-body {
-  background-color: rgba(0, 0, 0, 0.1);  /* Slightly darken the background */
+  background-color: rgba(0, 0, 0, 0.1);  
 }
-/* Base styles for the search container */
+
 .search-container {
   display: none;
   margin: auto 0;
 }
 
-/* Show search container by default on large screens */
 @media (min-width: 992px) {
   .search-container {
     display: flex !important;
@@ -97,7 +89,6 @@ p {
   }
 }
 
-/* For small screens */
 @media (max-width: 991px) {
   .search-container.d-block {
     display: block !important;
