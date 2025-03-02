@@ -7,9 +7,9 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-const API_KEY = import.meta.env.VITE_API_KEY;
-const API_URL_POPULAR = import.meta.env.VITE_API_URL_POPULAR;
-const API_URL_SEARCH = import.meta.env.VITE_API_URL_SEARCH;
+const API_KEY = import.meta.env.API_KEY;
+const API_URL_POPULAR = import.meta.env.API_URL_POPULAR;
+const API_URL_SEARCH = import.meta.env.API_URL_SEARCH;
 
 function Home() {
   const [movies, setMovies] = useState([]);
