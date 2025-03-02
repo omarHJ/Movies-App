@@ -7,9 +7,9 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-const API_KEY = "fadb58c698c6b23be592155cc37ab29a";
-const API_URL_POPULAR = "https://api.themoviedb.org/3/movie/popular";
-const API_URL_SEARCH = "https://api.themoviedb.org/3/search/movie";
+const API_KEY = import.meta.env.VITE_API_KEY;
+const API_URL_POPULAR = import.meta.env.VITE_API_URL_POPULAR;
+const API_URL_SEARCH = import.meta.env.VITE_API_URL_SEARCH;
 
 function Home() {
   const [movies, setMovies] = useState([]);
