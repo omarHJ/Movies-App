@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-const API_URL_MOVIE = import.meta.env.VITE_API_URL_SEARCH;
+const API_URL_MOVIE = "https://api.themoviedb.org/3/movie";
 
 
 const languageMap = {
